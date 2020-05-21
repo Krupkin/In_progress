@@ -1,0 +1,51 @@
+.menu{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.menu-item{
+    margin-right: 35px;
+    &:last-child{
+        margin-right: 0;
+    }
+}
+
+.menu-link{
+    display: inline-block;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: Raleway, Arial, sans-serif;
+    text-decoration: none;
+    color: $text-color;
+    line-height: 1.667;
+    transition: .3s color;
+    &::before{
+        content: "";
+        display: block;
+        position: absolute;
+        width: 8px;
+        height: 2px;
+        background-color: $second;
+        margin-bottom: 2px;
+        opacity: 0;
+        transition: .3s opacity;
+    }
+    &:hover{
+        color: $second;
+        &::before{
+            opacity: 1;
+        }
+    }
+}
+
+.active-link{
+    color: $second;
+}
+
+
+@media (max-width:480px){
+    .menu{
+        padding-left: 10px;
+    }
+}

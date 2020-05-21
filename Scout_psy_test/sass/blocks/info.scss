@@ -1,0 +1,30 @@
+.info{
+    margin: 35px;
+}
+
+.info-firsNameBlock{
+    display: flex;
+    flex-direction: column;
+}
+
+.info-title-top{
+    font-size: 30px;
+    color: $text-color;
+    text-align: center;
+    border: none;
+}
+
+.info-input-top{
+    max-width: 900px;
+    background-color: $primary;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid $second;
+    color: $second;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 300;
+    margin: 30px auto;
+    transition: .2s all ease;
+}

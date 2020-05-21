@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+@import "normalize";
+@import "variables";
+@import "fonts";
+@import "mixins";
+@import "core";
+@import "animate";
+
+@import "./blocks/header.scss";
+@import "./blocks/header-menu.scss";
+@import "./blocks/info.scss";
+@import "./blocks/keyboard.scss";
+@import "./blocks/camera.scss";
+
+
+@import "./blocks/footer.scss";

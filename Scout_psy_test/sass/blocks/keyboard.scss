@@ -1,0 +1,137 @@
+.keyboard {
+    max-width: 920px;
+    margin: auto;
+    padding: 20px;
+    border: 3px solid #444;
+    border-radius: 15px;
+    color: #444;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    
+    & .toLeft{
+        display: none;
+        position: absolute;
+        text-align: center;
+        line-height: 60px;
+        font-size: 36px;
+        top: -175px;
+        left: -100px;
+        width: 60px;
+        height: 60px;
+        border: 2px solid $second;
+        border-radius: 50%;
+        background: none;
+        cursor: pointer;
+        transition: .3s;
+        color: $second;
+        &:hover{
+            transform: scale(1.05);
+            transition: .2s;
+        }
+    }
+    & .toRight{
+        position: absolute;
+        text-align: center;
+        line-height: 60px;
+        font-size: 36px;
+        top: -175px;
+        right: -100px;
+        width: 60px;
+        height: 60px;
+        border: 2px solid $second;
+        border-radius: 50%;
+        background: none;
+        cursor: pointer;
+        transition: .3s;
+        color: $second;
+        &:hover{
+            transform: scale(1.05);
+            transition: .2s;
+        }
+    }
+    
+}
+
+a {
+    color:#444;
+    text-decoration:none;
+}
+
+h2 {
+    position: absolute;
+    margin: -200px 0 0;
+    top: 60%;
+    width: 100%;
+    color: #444;
+    text-align: center;
+}
+
+ul{
+    padding: 0;
+}
+span {
+    padding: 0 0 2px;
+    border-bottom: 1px dotted #444;
+    cursor: pointer;
+    -webkit-transition: .5s;
+        -moz-transition: .5s;
+            -o-transition: .5s;
+            -ms-transition: .5s;
+                transition: .5s;
+}
+
+span:hover {
+    color: #0784C6;
+}
+
+.keyboard-wrap {
+    position: relative;
+    margin: auto;
+}
+
+.row {text-align: center;}
+
+.key {
+    margin: 3px 1px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    display: inline-block;
+    line-height: 52px;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-transition: .5s;
+        -moz-transition: .5s;
+            -o-transition: .5s;
+            -ms-transition: .5s;
+                transition: .5s;
+    &:hover{
+        border-color: $second;
+        color: $second;
+    }
+    &:active{
+        transform: scale(1.1);;
+    }
+}
+
+.k32 {
+    width: 346px;
+}
+
+.backspace{
+    width: 120px;
+    font-size: 18px;
+}
+
+.active {
+    border: 2px solid #0784C6;
+    color: #0784C6;
+    -webkit-transition: 0s;
+        -moz-transition: 0s;
+            -ms-transition: 0s;
+                transition: 0s;
+}
