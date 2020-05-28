@@ -18,3 +18,8 @@ a:active {
     text-decoration: none;
     color: inherit;
 }
+
+.buttonSwicher{
+    width: 100px;
+    margin-bottom: 40px;
+}

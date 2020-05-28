@@ -17,7 +17,7 @@
         }
 
         async getAllCharacters () {
-            const res = await this.getResources("https://anapioficeandfire.com/api/characters")
+            const res = await this.getResources("https://anapioficeandfire.com/api/characters?page=3&pageSize=7")
                 return res.map(elem => this._transformCharactersData (elem))
         }
 

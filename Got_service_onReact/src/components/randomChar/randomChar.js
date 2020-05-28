@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './randomChar.css';
 import GotSerice from "../../services/gotService"
 import Spinner from "../spinner"
+import ErrorMessage from "../errorMesage"
+
 
 export default class RandomChar extends Component {
     constructor(){
@@ -15,7 +17,7 @@ export default class RandomChar extends Component {
         
         this.updateChair = this.updateChair.bind(this)
         this.onCharLoaded = this.onCharLoaded.bind(this)
-
+        this.onError = this.onError.bind(this)
         this.updateChair()
     }
 
@@ -27,11 +29,13 @@ export default class RandomChar extends Component {
         this.setState(({
             char,
             loading: false
+            
         }))
     }
 
     onError(err){
         this.setState(({
+            loading: false,
             error: true
         }))
     }
@@ -43,13 +47,27 @@ export default class RandomChar extends Component {
             .catch(this.onError)
     }
 
+    componentDidMount(){
+        this.updateChair()
+        this.timerID = setInterval(this.updateChair, 3000)
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.timerID)
+    }
+
     render() {
 
-        const {char, loading} = this.state;
-        const elem = !loading ? <Content data = {char}/> : <Spinner/>
+        const {char, loading, error} = this.state;
+        const erromMesage = error ?<ErrorMessage/> : null;
+        const loaderMessage = loading ? <Spinner/> : null;
+        const content = !(loading || error) ? <Content data = {char}/> : null;
+        
         return (
             <div className="random-block rounded">
-                {elem}
+                {content}
+                {loaderMessage}
+                {erromMesage}
             </div>
         );
     }
@@ -74,8 +92,8 @@ const Content = (props) => {
                         <span>{died}</span>
                     </li>
                     <li className="list-group-item d-flex justify-content-between">
-                        <span className="term">{culture} </span>
-                        <span>Anarchy</span>
+                        <span className="term">Culture</span>
+                        <span>{culture}</span>
                     </li>
                 </ul>
             </>
