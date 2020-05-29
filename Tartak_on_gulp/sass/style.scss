@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+@import "normalize";
+@import "variables";
+@import "fonts";
+@import "mixins";
+@import "core";
+
+@import "./blocks/header.scss";
+@import "./blocks/header-menu.scss";
+@import "./blocks/main.scss";
+@import "./blocks/about-section.scss";
+@import "./blocks/product-section.scss";
+@import "./blocks/certificate-section.scss";
+@import "./blocks/contact-section.scss";
+@import "./blocks/footer.scss";
+@import "./blocks/spinner.scss";
+

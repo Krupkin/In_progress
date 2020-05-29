@@ -1,0 +1,56 @@
+.about-section{
+    display: flex;
+    flex-direction: column;
+    background-image: url("/img/fon/section-fon.jpg");
+    background-size: cover;
+    background-position-x: 60%;
+}
+
+.about-title{
+    position: relative;
+    margin: 70px 0 35px 20px;
+    color: $second;
+    font-size: $title-size;
+    text-transform: uppercase;
+    &::after{
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        width: 120px;
+        height: 3px;
+        background-color: $second;
+    }
+}
+
+.about-text{
+    font-size: $text-size;
+    padding: 15px 15px;
+    text-align: justify;
+    font-family: 'Roboto', sans-serif;
+    color: $white;
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0 15px;
+    max-width: 430px;
+}
+
+
+.companies-list{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 15px 15px;
+    max-width: 430px;
+    margin: 0 15px;
+}
+
+.companies-item{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    & img{
+        width: 60%;
+        
+    }
+}
