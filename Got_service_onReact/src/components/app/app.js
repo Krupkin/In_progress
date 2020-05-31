@@ -1,17 +1,20 @@
 import React, {Component} from 'react';
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import {Col, Row, Container} from 'reactstrap';
 import Header from '../header';
 import RandomChar from '../randomChar';
-import ItemList from '../itemList';
-import CharDetails from '../charDetails';
+import ChararterPage from '../characterPage';
+import BookPage from '../bookPage';
+import HousesPage from "../housesPage";
 
+
+import "./app.css";
 
 export default class App extends Component{
     constructor(props){
         super(props)
         this.state = {
             buttonswicherPosition: true,
-            selektedChar: null
         }
         this.onToogleBlock = this.onToogleBlock.bind(this)
     }
@@ -22,43 +25,32 @@ export default class App extends Component{
             }))
     }
 
-    onClickChar = (id) => {
-        this.setState(({
-            selektedChar: id
-        }))
-    }
-
     render(){
         const randomSwich = this.state.buttonswicherPosition ?  <RandomChar/> : null
-
-
         return(
-            <> 
-                <Container>
-                    <Header />
-                </Container>
-                <Container>
-                    <Row>
-                        <Col lg={{size: 5, offset: 0}}>
-                            {randomSwich}
-                            <button 
-                                className = "buttonSwicher"
-                                onClick = {this.onToogleBlock}
-                            >TogleSwich</button>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md='6'>
-                            <ItemList onClickChar = {this.onClickChar}/>
-                        </Col>
-                        <Col md='6'>
-                            <CharDetails charID ={this.state.selektedChar} />
-                        </Col>
-                    </Row>
-                </Container>
-            </>
+            <Router>
+                <div className = "app"> 
+                    <Container>
+                        <Header />
+                    </Container>
+                    <Container>
+                        <Row>
+                            <Col lg={{size: 5, offset: 0}}>
+                                {randomSwich}
+                                <button 
+                                    className = "buttonSwicher" 
+                                    onClick = {this.onToogleBlock}>
+                                        TogleSwich
+                                </button>
+                            </Col>
+                        </Row>
+                        <Route path="/characters" exact  component={ChararterPage}/>
+                        <Route path="/books" exact component={BookPage}/>
+                        <Route path="/houses" exact component={HousesPage}/>
+                        {/* <Route path="/boors/:id" exact component={HousesPage}/> */}
+                    </Container>
+                </div>
+            </Router>
         )
     }
 }
-
-

@@ -16,21 +16,20 @@
                 }
         }
 
-        async getAllCharacters () {
-            const res = await this.getResources("https://anapioficeandfire.com/api/characters?page=3&pageSize=7")
-                return res.map(elem => this._transformCharactersData (elem))
-        }
-
-        async getCharacterById (id) {
-            const res = await this.getResources(`https://anapioficeandfire.com/api/characters/${id}`)
-            return this._transformCharactersData(res)
-        }
-
-
         chekData(data){
             if(!data){
                 return "info not found"
             } else return data
+        }
+
+        getAllCharacters = async () => {
+            const res = await this.getResources("https://anapioficeandfire.com/api/characters?page=3&pageSize=7")
+                return res.map(elem => this._transformCharactersData (elem))
+        }
+
+        getCharacterById = async (id) => {
+            const res = await this.getResources(`https://anapioficeandfire.com/api/characters/${id + 14}`)
+            return this._transformCharactersData(res)
         }
 
         _transformCharactersData (data) {
@@ -43,4 +42,53 @@
             }
             return newEl
         }
+
+        // _______________________________________________________________________________________________________
+
+
+        getAllBooks = async () => {
+            const res = await this.getResources("https://anapioficeandfire.com/api/books?page=1&pageSize=7")
+                return res.map(elem => this._transformBookData (elem))
+        }
+
+        getBooksById = async (id) => {
+            const res = await this.getResources(`https://anapioficeandfire.com/api/books/${id}`)
+            return this._transformBookData(res)
+        }
+
+        _transformBookData (data) {
+            const newEl = {
+                name: this.chekData(data.name),
+                isbn: this.chekData(data.isbn),
+                publisher: this.chekData(data.publisher),
+                released: this.chekData(data.released),
+                numberOfPages: this.chekData(data.numberOfPages)
+            }
+            return newEl
+        }
+
+        // ____________________________________________________________________________________________________________
+
+
+        getAllHouses = async () => {
+            const res = await this.getResources("https://anapioficeandfire.com/api/houses?page=1&pageSize=7")
+                return res.map(elem => this._transformHousesData(elem))
+        }
+
+        getHousesById = async (id) => {
+            const res = await this.getResources(`https://anapioficeandfire.com/api/houses/${id}`)
+            return this._transformHousesData(res)
+        }
+
+        _transformHousesData(data) {
+            const newEl = {
+                name: this.chekData(data.name),
+                region: this.chekData(data.region),
+                coatOfArms: this.chekData(data.coatOfArms),
+                words: this.chekData(data.words)
+            }
+            return newEl
+        }
+
+
     }
