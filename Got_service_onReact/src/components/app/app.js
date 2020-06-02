@@ -3,9 +3,8 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import {Col, Row, Container} from 'reactstrap';
 import Header from '../header';
 import RandomChar from '../randomChar';
-import ChararterPage from '../characterPage';
-import BookPage from '../bookPage';
-import HousesPage from "../housesPage";
+import {ChararterPage, BookPage, HousesPage, BookItem} from '../pages';
+
 
 
 import "./app.css";
@@ -47,7 +46,11 @@ export default class App extends Component{
                         <Route path="/characters" exact  component={ChararterPage}/>
                         <Route path="/books" exact component={BookPage}/>
                         <Route path="/houses" exact component={HousesPage}/>
-                        {/* <Route path="/boors/:id" exact component={HousesPage}/> */}
+                        <Route path="/books/:id" render = {
+                            ({match}) => {
+                                const {id} = match.params;
+                                return <BookItem bookId={id}/>}
+                        }/>
                     </Container>
                 </div>
             </Router>
